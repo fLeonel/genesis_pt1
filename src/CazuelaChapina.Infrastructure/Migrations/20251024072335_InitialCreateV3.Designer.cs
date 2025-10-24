@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CazuelaChapina.Infrastructure.Migrations
 {
     [DbContext(typeof(CazuelaChapinaDbContext))]
-    [Migration("20251024005901_InitialCreateV4")]
-    partial class InitialCreateV4
+    [Migration("20251024072335_InitialCreateV3")]
+    partial class InitialCreateV3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,15 +103,13 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Atributos")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("CantidadDisponible")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CategoriaId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("CategoriaId1")
+                    b.Property<Guid?>("CategoriaId")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("CostoUnitario")
@@ -131,6 +129,9 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("PrecioPublico")
                         .HasColumnType("TEXT");
 
@@ -147,8 +148,6 @@ namespace CazuelaChapina.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("CategoriaId1");
 
                     b.ToTable("Productos");
                 });
@@ -208,7 +207,7 @@ namespace CazuelaChapina.Infrastructure.Migrations
 
                     b.HasIndex("RecetaId");
 
-                    b.ToTable("RecetaDetalle");
+                    b.ToTable("RecetaDetalles");
                 });
 
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Venta", b =>
@@ -298,14 +297,9 @@ namespace CazuelaChapina.Infrastructure.Migrations
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Producto", b =>
                 {
                     b.HasOne("CazuelaChapina.Domain.Entities.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("CazuelaChapina.Domain.Entities.Categoria", null)
                         .WithMany("Productos")
-                        .HasForeignKey("CategoriaId1");
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Categoria");
                 });

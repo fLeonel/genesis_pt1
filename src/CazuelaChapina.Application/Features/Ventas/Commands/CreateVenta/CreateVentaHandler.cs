@@ -23,12 +23,34 @@ public class CreateVentaHandler
 
         foreach (var item in command.Detalles)
         {
-            var producto = await _context.Productos.FirstOrDefaultAsync(p => p.Id == item.ProductoId);
-            if (producto is null)
-                throw new Exception($"Producto con ID {item.ProductoId} no encontrado.");
+            var producto = await _context.Productos
+                .FirstOrDefaultAsync(p => p.Id == item.ProductoId);
 
-            var detalle = new VentaDetalle(producto.Id, item.Cantidad, producto.Precio);
-            detalles.Add(detalle);
+            if (producto != null)
+            {
+                detalles.Add(new VentaDetalle(producto.Id, item.Cantidad, producto.Precio));
+                continue;
+            }
+
+            var combo = await _context.Combos
+                .Include(c => c.Productos)
+                .FirstOrDefaultAsync(c => c.Id == item.ProductoId);
+
+            if (combo != null)
+            {
+                foreach (var productoCombo in combo.Productos)
+                {
+                    detalles.Add(new VentaDetalle(
+                        productoCombo.Id,
+                        item.Cantidad,
+                        productoCombo.Precio
+                    ));
+                }
+
+                continue;
+            }
+
+            throw new Exception($"No se encontró producto ni combo con ID {item.ProductoId}");
         }
 
         var venta = new Venta(command.ClienteId, detalles, command.MetodoPago, command.Notas);

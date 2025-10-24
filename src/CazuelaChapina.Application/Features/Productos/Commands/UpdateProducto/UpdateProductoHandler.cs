@@ -28,7 +28,8 @@ public class UpdateProductoHandler
             command.SePuedeComprar,
             command.EsFabricado,
             command.Descripcion,
-            command.Atributos
+            command.Atributos,
+            command.CantidadDisponible
         );
 
         await _context.SaveChangesAsync();

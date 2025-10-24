@@ -1,6 +1,7 @@
 using CazuelaChapina.Application.Common.Interfaces;
 using CazuelaChapina.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Text.Json;
 
@@ -24,14 +25,29 @@ public class CazuelaChapinaDbContext : DbContext, IAppDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        var dictionaryConverter = new ValueConverter<Dictionary<string, string>?, string?>(
-            v => v == null ? null : JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),
-            v => v == null ? new Dictionary<string, string>() : JsonSerializer.Deserialize<Dictionary<string, string>>(v, (JsonSerializerOptions?)null)!
+        var dictionaryConverter = new ValueConverter<Dictionary<string, string>, string?>(
+            v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),
+            v => string.IsNullOrEmpty(v)
+                ? new Dictionary<string, string>()
+                : JsonSerializer.Deserialize<Dictionary<string, string>>(v, (JsonSerializerOptions?)null)!
+        );
+
+        var dictionaryComparer = new ValueComparer<Dictionary<string, string>>(
+            (d1, d2) => JsonSerializer.Serialize(d1, (JsonSerializerOptions?)null) == JsonSerializer.Serialize(d2, (JsonSerializerOptions?)null),
+            d => JsonSerializer.Serialize(d, (JsonSerializerOptions?)null).GetHashCode(),
+            d => d == null ? new Dictionary<string, string>() : new Dictionary<string, string>(d)
         );
 
         modelBuilder.Entity<Producto>()
             .Property(p => p.Atributos)
-            .HasConversion(dictionaryConverter);
+            .HasConversion(dictionaryConverter)
+            .Metadata.SetValueComparer(dictionaryComparer);
+
+        modelBuilder.Entity<Producto>()
+            .HasOne(p => p.Categoria)
+            .WithMany(c => c.Productos)
+            .HasForeignKey(p => p.CategoriaId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Combo>()
             .HasMany(c => c.Productos)
@@ -53,12 +69,6 @@ public class CazuelaChapinaDbContext : DbContext, IAppDbContext
             .HasOne(d => d.Producto)
             .WithMany()
             .HasForeignKey(d => d.ProductoId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<Producto>()
-            .HasOne(p => p.Categoria)
-            .WithMany()
-            .HasForeignKey(p => p.CategoriaId)
             .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Receta>()

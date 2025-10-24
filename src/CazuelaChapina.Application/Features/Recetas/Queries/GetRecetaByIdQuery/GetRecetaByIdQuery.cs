@@ -20,18 +20,22 @@ public class GetRecetaByIdQuery
                 .ThenInclude(d => d.ProductoIngrediente)
             .FirstOrDefaultAsync(r => r.Id == id);
 
-        if (receta == null) return null;
+        if (receta == null)
+            return null;
 
         return new
         {
-            receta.Id,
-            receta.Nombre,
-            receta.Descripcion,
-            ProductoPrincipal = receta.Producto.Nombre,
+            Id = receta.Id,
+            Nombre = receta.Nombre,
+            Descripcion = receta.Descripcion,
+            ProductoId = receta.Producto.Id,
+            ProductoNombre = receta.Producto.Nombre,
             Detalles = receta.Detalles.Select(d => new
             {
-                ProductoIngrediente = d.ProductoIngrediente.Nombre,
-                d.CantidadRequerida
+                ProductoIngredienteId = d.ProductoIngrediente.Id,
+                ProductoIngredienteNombre = d.ProductoIngrediente.Nombre,
+                d.CantidadRequerida,
+                UnidadMedida = d.UnidadMedida ?? d.ProductoIngrediente.UnidadMedida ?? string.Empty
             })
         };
     }

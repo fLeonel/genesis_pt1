@@ -12,4 +12,5 @@ public class CreateProductoCommand
     public bool EsFabricado { get; set; } = false;
     public string? Descripcion { get; set; }
     public Dictionary<string, string>? Atributos { get; set; }
+    public decimal CantidadDisponible { get; set; } = 0m;
 }

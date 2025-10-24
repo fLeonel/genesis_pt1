@@ -1,4 +1,6 @@
 using DotNetEnv;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using CazuelaChapina.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using CazuelaChapina.Application.Common.Interfaces;
@@ -37,6 +39,12 @@ using Microsoft.OpenApi.Models;
 Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+});
 
 var connectionString = "Data Source=cazuela.db";
 builder.Services.AddDbContext<CazuelaChapinaDbContext>(options =>
@@ -236,7 +244,7 @@ app.MapDelete("/api/ventas/{id:guid}", async (Guid id, IAppDbContext db) =>
     return success ? Results.NoContent() : Results.NotFound();
 }).WithTags("Ventas");
 
-// Categorias
+// CATEGORÍAS
 app.MapPost("/api/categorias", async (CreateCategoriaCommand cmd, IAppDbContext db) =>
 {
     var handler = new CreateCategoriaHandler(db);
@@ -262,8 +270,8 @@ app.MapPut("/api/categorias/{id:guid}", async (Guid id, UpdateCategoriaCommand c
 {
     cmd.Id = id;
     var handler = new UpdateCategoriaHandler(db);
-    var success = await handler.Handle(cmd);
-    return success ? Results.NoContent() : Results.NotFound();
+    var result = await handler.Handle(cmd);
+    return result is not null ? Results.Ok(result) : Results.NotFound();
 }).WithTags("Categorias");
 
 app.MapDelete("/api/categorias/{id:guid}", async (Guid id, IAppDbContext db) =>

@@ -41,7 +41,8 @@ public class CreateProductoHandler
             sePuedeComprar: command.SePuedeComprar,
             esFabricado: command.EsFabricado,
             descripcion: command.Descripcion,
-            atributos: command.Atributos
+            atributos: command.Atributos,
+            cantidadDisponible: command.CantidadDisponible
         );
 
         _context.Productos.Add(producto);

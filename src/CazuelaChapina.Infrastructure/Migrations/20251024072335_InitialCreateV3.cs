@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CazuelaChapina.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreateV2 : Migration
+    public partial class InitialCreateV3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,18 +62,18 @@ namespace CazuelaChapina.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Precio = table.Column<decimal>(type: "TEXT", nullable: false),
                     Nombre = table.Column<string>(type: "TEXT", nullable: false),
-                    CategoriaId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CategoriaId = table.Column<Guid>(type: "TEXT", nullable: true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: false),
                     PrecioPublico = table.Column<decimal>(type: "TEXT", nullable: false),
                     CostoUnitario = table.Column<decimal>(type: "TEXT", nullable: false),
-                    CantidadDisponible = table.Column<decimal>(type: "TEXT", nullable: false),
                     UnidadMedida = table.Column<string>(type: "TEXT", nullable: false),
                     SePuedeVender = table.Column<bool>(type: "INTEGER", nullable: false),
                     SePuedeComprar = table.Column<bool>(type: "INTEGER", nullable: false),
                     EsFabricado = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Atributos = table.Column<string>(type: "TEXT", nullable: true),
-                    CategoriaId1 = table.Column<Guid>(type: "TEXT", nullable: true),
+                    CantidadDisponible = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Atributos = table.Column<string>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -85,11 +85,6 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         principalTable: "Categorias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Productos_Categorias_CategoriaId1",
-                        column: x => x.CategoriaId1,
-                        principalTable: "Categorias",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -191,7 +186,7 @@ namespace CazuelaChapina.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RecetaDetalle",
+                name: "RecetaDetalles",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -203,15 +198,15 @@ namespace CazuelaChapina.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecetaDetalle", x => x.Id);
+                    table.PrimaryKey("PK_RecetaDetalles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RecetaDetalle_Productos_ProductoIngredienteId",
+                        name: "FK_RecetaDetalles_Productos_ProductoIngredienteId",
                         column: x => x.ProductoIngredienteId,
                         principalTable: "Productos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_RecetaDetalle_Recetas_RecetaId",
+                        name: "FK_RecetaDetalles_Recetas_RecetaId",
                         column: x => x.RecetaId,
                         principalTable: "Recetas",
                         principalColumn: "Id",
@@ -229,18 +224,13 @@ namespace CazuelaChapina.Infrastructure.Migrations
                 column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productos_CategoriaId1",
-                table: "Productos",
-                column: "CategoriaId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecetaDetalle_ProductoIngredienteId",
-                table: "RecetaDetalle",
+                name: "IX_RecetaDetalles_ProductoIngredienteId",
+                table: "RecetaDetalles",
                 column: "ProductoIngredienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RecetaDetalle_RecetaId",
-                table: "RecetaDetalle",
+                name: "IX_RecetaDetalles_RecetaId",
+                table: "RecetaDetalles",
                 column: "RecetaId");
 
             migrationBuilder.CreateIndex(
@@ -272,7 +262,7 @@ namespace CazuelaChapina.Infrastructure.Migrations
                 name: "ComboProducto");
 
             migrationBuilder.DropTable(
-                name: "RecetaDetalle");
+                name: "RecetaDetalles");
 
             migrationBuilder.DropTable(
                 name: "VentaDetalle");

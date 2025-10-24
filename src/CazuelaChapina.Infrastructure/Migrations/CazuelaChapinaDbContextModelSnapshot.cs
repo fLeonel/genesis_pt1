@@ -100,15 +100,13 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Atributos")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("CantidadDisponible")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CategoriaId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("CategoriaId1")
+                    b.Property<Guid?>("CategoriaId")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("CostoUnitario")
@@ -128,6 +126,9 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("PrecioPublico")
                         .HasColumnType("TEXT");
 
@@ -144,8 +145,6 @@ namespace CazuelaChapina.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("CategoriaId1");
 
                     b.ToTable("Productos");
                 });
@@ -295,14 +294,9 @@ namespace CazuelaChapina.Infrastructure.Migrations
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Producto", b =>
                 {
                     b.HasOne("CazuelaChapina.Domain.Entities.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("CazuelaChapina.Domain.Entities.Categoria", null)
                         .WithMany("Productos")
-                        .HasForeignKey("CategoriaId1");
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Categoria");
                 });

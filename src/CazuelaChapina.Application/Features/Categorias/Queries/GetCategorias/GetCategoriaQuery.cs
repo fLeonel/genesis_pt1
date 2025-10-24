@@ -1,5 +1,5 @@
 using CazuelaChapina.Application.Common.Interfaces;
-using CazuelaChapina.Domain.Entities;
+using CazuelaChapina.Application.Features.Categorias.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace CazuelaChapina.Application.Features.Categorias.Queries.GetCategorias;
@@ -13,11 +13,16 @@ public class GetCategoriasQuery
         _context = context;
     }
 
-    public async Task<List<Categoria>> Handle()
+    public async Task<List<CategoriaDto>> Handle()
     {
         return await _context.Categorias
             .AsNoTracking()
-            .Include(c => c.Productos)
+            .Select(c => new CategoriaDto(
+                c.Id,
+                c.Nombre,
+                c.Descripcion,
+                c.CreatedAt
+            ))
             .ToListAsync();
     }
 }

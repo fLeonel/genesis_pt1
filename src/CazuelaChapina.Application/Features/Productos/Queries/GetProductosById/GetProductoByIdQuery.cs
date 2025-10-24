@@ -35,7 +35,7 @@ public class GetProductoByIdQuery
             foreach (var detalle in producto.Receta.Detalles)
             {
                 var ingrediente = detalle.ProductoIngrediente;
-                if (ingrediente.CantidadDisponible <= 0 || detalle.CantidadRequerida <= 0)
+                if (ingrediente == null || ingrediente.CantidadDisponible <= 0 || detalle.CantidadRequerida <= 0)
                 {
                     cantidadesPosibles.Add(0);
                 }
@@ -52,11 +52,12 @@ public class GetProductoByIdQuery
         {
             producto.Id,
             producto.Nombre,
-            Categoria = producto.Categoria.Nombre,
+            Categoria = producto.Categoria?.Nombre ?? "Sin categoría",
             producto.Descripcion,
             producto.PrecioPublico,
             producto.CostoUnitario,
             producto.UnidadMedida,
+            producto.CantidadDisponible,
             StockCalculado = stockDisponible,
             producto.SePuedeVender,
             producto.SePuedeComprar,
@@ -68,7 +69,7 @@ public class GetProductoByIdQuery
                 producto.Receta.Nombre,
                 Detalles = producto.Receta.Detalles.Select(d => new
                 {
-                    ProductoIngrediente = d.ProductoIngrediente.Nombre,
+                    ProductoIngrediente = d.ProductoIngrediente?.Nombre ?? "Desconocido",
                     d.CantidadRequerida
                 })
             }

@@ -16,6 +16,7 @@ public class GetProductosQuery
     public async Task<List<object>> Handle()
     {
         var productos = await _context.Productos
+            .Include(p => p.Categoria)
             .Include(p => p.Receta)
                 .ThenInclude(r => r.Detalles)
                     .ThenInclude(d => d.ProductoIngrediente)
@@ -35,7 +36,7 @@ public class GetProductosQuery
                 foreach (var detalle in producto.Receta.Detalles)
                 {
                     var ingrediente = detalle.ProductoIngrediente;
-                    if (ingrediente.CantidadDisponible <= 0 || detalle.CantidadRequerida <= 0)
+                    if (ingrediente == null || ingrediente.CantidadDisponible <= 0 || detalle.CantidadRequerida <= 0)
                     {
                         cantidadesPosibles.Add(0);
                     }
@@ -52,11 +53,12 @@ public class GetProductosQuery
             {
                 producto.Id,
                 producto.Nombre,
-                Categoria = producto.Categoria.Nombre,
+                Categoria = producto.Categoria?.Nombre ?? "Sin categoría",
                 producto.Descripcion,
                 producto.PrecioPublico,
                 producto.CostoUnitario,
                 producto.UnidadMedida,
+                producto.CantidadDisponible,
                 StockCalculado = stockDisponible,
                 producto.SePuedeVender,
                 producto.SePuedeComprar,

@@ -22,14 +22,17 @@ public class GetRecetasQuery
 
         return recetas.Select(r => new
         {
-            r.Id,
-            r.Nombre,
-            r.Descripcion,
-            ProductoPrincipal = r.Producto.Nombre,
+            Id = r.Id,
+            Nombre = r.Nombre,
+            Descripcion = r.Descripcion,
+            ProductoId = r.Producto.Id,
+            ProductoNombre = r.Producto.Nombre,
             Detalles = r.Detalles.Select(d => new
             {
-                ProductoIngrediente = d.ProductoIngrediente.Nombre,
-                d.CantidadRequerida
+                ProductoIngredienteId = d.ProductoIngrediente.Id,
+                ProductoIngredienteNombre = d.ProductoIngrediente.Nombre,
+                d.CantidadRequerida,
+                UnidadMedida = d.UnidadMedida ?? d.ProductoIngrediente.UnidadMedida ?? string.Empty
             })
         });
     }
