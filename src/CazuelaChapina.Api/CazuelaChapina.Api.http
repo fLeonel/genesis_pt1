@@ -1,0 +1,6 @@
+@CazuelaChapina.Api_HostAddress = http://localhost:5009
+
+GET {{CazuelaChapina.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

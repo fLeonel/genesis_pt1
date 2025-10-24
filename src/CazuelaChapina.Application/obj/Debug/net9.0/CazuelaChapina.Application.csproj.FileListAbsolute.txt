@@ -1,0 +1,15 @@
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/bin/Debug/net9.0/CazuelaChapina.Application.deps.json
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/bin/Debug/net9.0/CazuelaChapina.Application.dll
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/bin/Debug/net9.0/CazuelaChapina.Application.pdb
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/bin/Debug/net9.0/CazuelaChapina.Domain.dll
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/bin/Debug/net9.0/CazuelaChapina.Domain.pdb
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.csproj.AssemblyReference.cache
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.AssemblyInfoInputs.cache
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.AssemblyInfo.cs
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.csproj.CoreCompileInputs.cache
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaC.6174239E.Up2Date
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.dll
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/refint/CazuelaChapina.Application.dll
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/CazuelaChapina.Application.pdb
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/Debug/net9.0/ref/CazuelaChapina.Application.dll
