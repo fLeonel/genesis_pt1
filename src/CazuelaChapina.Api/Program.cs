@@ -66,6 +66,17 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddHttpClient<LlmService>();
 builder.Services.AddScoped<SalesInsightsService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -74,7 +85,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
-
+app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 
 // Productos
@@ -307,12 +318,6 @@ app.MapGet("/api/ai/insights", async (SalesInsightsService ai) =>
 })
 .WithTags("AI")
 .WithSummary("Análisis inteligente de ventas estacionales con DeepSeek R1");
-
-app.MapGet("/api/llm/test", async (LlmService llm) =>
-{
-    var result = await llm.AskAsync("Hola, soy el sistema de la Cazuela Chapina. ¿Puedes responderme?");
-    return Results.Ok(new { message = result });
-});
 
 app.Run();
 

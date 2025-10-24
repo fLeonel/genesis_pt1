@@ -154,6 +154,7 @@
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/CazuelaChapina.Api.csproj.CoreCompileInputs.cache
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/CazuelaChapina.Api.MvcApplicationPartsAssemblyInfo.cs
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/CazuelaChapina.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/CazuelaChapina.Api.sourcelink.json
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json

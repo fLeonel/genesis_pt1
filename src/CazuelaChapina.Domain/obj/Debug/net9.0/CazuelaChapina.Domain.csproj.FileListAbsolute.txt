@@ -6,6 +6,7 @@
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.AssemblyInfoInputs.cache
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.AssemblyInfo.cs
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.csproj.CoreCompileInputs.cache
+/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.sourcelink.json
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.dll
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/refint/CazuelaChapina.Domain.dll
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.pdb
