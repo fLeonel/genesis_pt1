@@ -13,7 +13,7 @@ public class CazuelaChapinaDbContext : DbContext, IAppDbContext
     public DbSet<Combo> Combos => Set<Combo>();
     public DbSet<Cliente> Clientes => Set<Cliente>();
     public DbSet<Venta> Ventas => Set<Venta>();
-    public DbSet<VentaDetalle> VentaDetalle => Set<VentaDetalle>();
+public DbSet<VentaDetalle> VentaDetalles => Set<VentaDetalle>();
     public DbSet<Receta> Recetas => Set<Receta>();
     public DbSet<RecetaDetalle> RecetaDetalles => Set<RecetaDetalle>();
     public DbSet<Categoria> Categorias => Set<Categoria>();

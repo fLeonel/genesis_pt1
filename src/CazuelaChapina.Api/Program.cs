@@ -24,6 +24,7 @@ using CazuelaChapina.Application.Features.Ventas.Commands.UpdateVenta;
 using CazuelaChapina.Application.Features.Ventas.Commands.DeleteVenta;
 using CazuelaChapina.Application.Features.Ventas.Queries.GetVentas;
 using CazuelaChapina.Application.Features.Ventas.Queries.GetVentaById;
+using CazuelaChapina.Application.Features.Ventas.Commands.ConfirmarVenta;
 using CazuelaChapina.Application.Features.Categorias.Commands.CreateCategoria;
 using CazuelaChapina.Application.Features.Categorias.Commands.UpdateCategoria;
 using CazuelaChapina.Application.Features.Categorias.Commands.DeleteCategoria;
@@ -234,6 +235,14 @@ app.MapPut("/api/ventas/{id:guid}", async (Guid id, UpdateVentaCommand cmd, IApp
     cmd.Id = id;
     var handler = new UpdateVentaHandler(db);
     var success = await handler.Handle(cmd);
+    return success ? Results.NoContent() : Results.NotFound();
+}).WithTags("Ventas");
+
+app.MapPut("/api/ventas/{id:guid}/confirmar", async (Guid id, IAppDbContext db) =>
+{
+    var handler = new ConfirmarVentaHandler(db);
+    var command = new ConfirmarVentaCommand(id);
+    var success = await handler.Handle(command);
     return success ? Results.NoContent() : Results.NotFound();
 }).WithTags("Ventas");
 

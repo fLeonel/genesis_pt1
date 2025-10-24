@@ -8,7 +8,7 @@ public class Venta : BaseEntity
     public decimal Total { get; private set; }
     public string MetodoPago { get; private set; } = "Efectivo";
     public string Estado { get; private set; } = "Pendiente";
-    //agrego esto para saber cuales estados manejare: Pendiente, Confirmada, Cancelada, Entregada
+    //agrego esto para saber cuales estados manejare:Pendiente, Confirmada, Cancelada, Entregada
     public string? Notas { get; private set; }
 
     private readonly List<VentaDetalle> _detalles = new();

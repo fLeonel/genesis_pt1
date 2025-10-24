@@ -28,7 +28,7 @@ public class CreateVentaHandler
 
             if (producto != null)
             {
-                detalles.Add(new VentaDetalle(producto.Id, item.Cantidad, producto.Precio));
+                detalles.Add(new VentaDetalle(producto.Id, item.Cantidad, producto.PrecioPublico));
                 continue;
             }
 
@@ -43,7 +43,7 @@ public class CreateVentaHandler
                     detalles.Add(new VentaDetalle(
                         productoCombo.Id,
                         item.Cantidad,
-                        productoCombo.Precio
+                        productoCombo.PrecioPublico
                     ));
                 }
 

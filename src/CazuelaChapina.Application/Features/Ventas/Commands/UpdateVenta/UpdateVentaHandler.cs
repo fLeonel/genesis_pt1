@@ -23,9 +23,11 @@ public class UpdateVentaHandler
             return false;
 
         if (venta.Estado != "Pendiente")
-            throw new InvalidOperationException("No se puede modificar una venta confirmada.");
+            throw new InvalidOperationException("Solo se pueden editar ventas en estado Pendiente.");
 
-        List<VentaDetalle> nuevosDetalles = new();
+        _context.VentaDetalles.RemoveRange(venta.Detalles);
+
+        var nuevosDetalles = new List<VentaDetalle>();
 
         if (command.Detalles is not null && command.Detalles.Any())
         {
@@ -35,7 +37,7 @@ public class UpdateVentaHandler
                 if (producto is null)
                     throw new Exception($"Producto con ID {item.ProductoId} no encontrado.");
 
-                nuevosDetalles.Add(new VentaDetalle(producto.Id, item.Cantidad, producto.Precio));
+                nuevosDetalles.Add(new VentaDetalle(producto.Id, item.Cantidad, producto.PrecioPublico));
             }
         }
 
