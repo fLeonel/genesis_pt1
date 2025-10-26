@@ -8,6 +8,7 @@ public interface IAppDbContext
     DbSet<Producto> Productos { get; }
     DbSet<Categoria> Categorias { get; }
     DbSet<Combo> Combos { get; }
+    DbSet<ComboDetalle> ComboDetalles { get; }
     DbSet<Cliente> Clientes { get; }
     DbSet<Venta> Ventas { get; }
     DbSet<VentaDetalle> VentaDetalles { get; }

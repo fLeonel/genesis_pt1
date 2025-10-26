@@ -1,5 +1,4 @@
 using CazuelaChapina.Application.Common.Interfaces;
-using CazuelaChapina.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CazuelaChapina.Application.Features.Combos.Queries.GetCombos;
@@ -7,15 +6,20 @@ namespace CazuelaChapina.Application.Features.Combos.Queries.GetCombos;
 public class GetCombosQuery
 {
     private readonly IAppDbContext _context;
-    public GetCombosQuery(IAppDbContext context) => _context = context;
+
+    public GetCombosQuery(IAppDbContext context)
+    {
+        _context = context;
+    }
 
     public async Task<IEnumerable<object>> Handle()
     {
         var combos = await _context.Combos
-            .Include(c => c.Productos)
-                .ThenInclude(p => p.Receta)
-                    .ThenInclude(r => r.Detalles)
-                        .ThenInclude(d => d.ProductoIngrediente)
+            .Include(c => c.Detalles)
+                .ThenInclude(cd => cd.Producto)
+                    .ThenInclude(p => p.Receta)
+                        .ThenInclude(r => r.Detalles)
+                            .ThenInclude(d => d.ProductoIngrediente)
             .AsNoTracking()
             .ToListAsync();
 
@@ -25,25 +29,26 @@ public class GetCombosQuery
         {
             var cantidadesPosibles = new List<decimal>();
 
-            foreach (var producto in combo.Productos)
+            foreach (var detalle in combo.Detalles)
             {
+                var producto = detalle.Producto;
                 decimal stockProducto;
 
                 if (producto.EsFabricado && producto.Receta is not null)
                 {
                     var cantidadesIngredientes = new List<decimal>();
 
-                    foreach (var detalle in producto.Receta.Detalles)
+                    foreach (var ingredienteDetalle in producto.Receta.Detalles)
                     {
-                        var ingrediente = detalle.ProductoIngrediente;
-                        if (ingrediente == null || detalle.CantidadRequerida <= 0)
+                        var ingrediente = ingredienteDetalle.ProductoIngrediente;
+                        if (ingrediente == null || ingredienteDetalle.CantidadRequerida <= 0)
                         {
                             cantidadesIngredientes.Add(0);
                         }
                         else
                         {
                             cantidadesIngredientes.Add(
-                                Math.Floor(ingrediente.CantidadDisponible / detalle.CantidadRequerida)
+                                Math.Floor(ingrediente.CantidadDisponible / ingredienteDetalle.CantidadRequerida)
                             );
                         }
                     }
@@ -55,7 +60,9 @@ public class GetCombosQuery
                     stockProducto = producto.CantidadDisponible;
                 }
 
-                cantidadesPosibles.Add(stockProducto);
+                // Calcular stock posible según la cantidad requerida por combo
+                var stockPorCombo = Math.Floor((decimal)stockProducto / detalle.CantidadPorCombo);
+                cantidadesPosibles.Add(stockPorCombo);
             }
 
             var stockCombo = cantidadesPosibles.Count > 0 ? cantidadesPosibles.Min() : 0;
@@ -66,9 +73,16 @@ public class GetCombosQuery
                 combo.Nombre,
                 combo.Descripcion,
                 combo.PrecioTotal,
-                combo.Productos,
                 StockCalculado = stockCombo,
-                SePuedeVender = stockCombo > 0
+                SePuedeVender = stockCombo > 0,
+                Productos = combo.Detalles.Select(d => new
+                {
+                    d.Producto.Id,
+                    d.Producto.Nombre,
+                    d.Producto.PrecioPublico,
+                    d.Producto.CantidadDisponible,
+                    d.CantidadPorCombo
+                })
             });
         }
 

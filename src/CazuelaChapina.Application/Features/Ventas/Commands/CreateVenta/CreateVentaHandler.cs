@@ -3,7 +3,6 @@ using CazuelaChapina.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CazuelaChapina.Application.Features.Ventas.Commands.CreateVenta
-
 {
     public class CreateVentaHandler
     {
@@ -48,43 +47,46 @@ namespace CazuelaChapina.Application.Features.Ventas.Commands.CreateVenta
                 }
 
                 var combo = await _context.Combos
-                    .Include(c => c.Productos)
+                    .Include(c => c.Detalles)
+                        .ThenInclude(d => d.Producto)
                     .FirstOrDefaultAsync(c => c.Id == item.ProductoId);
 
                 if (combo != null)
                 {
-                    foreach (var productoCombo in combo.Productos)
+                    foreach (var detalleCombo in combo.Detalles)
                     {
-                        if (productoCombo.CantidadDisponible < item.Cantidad)
-                            throw new Exception($"No hay suficiente stock de {productoCombo.Nombre} en el combo {combo.Nombre}");
+                        var productoCombo = detalleCombo.Producto;
+                        var cantidadTotal = item.Cantidad * detalleCombo.CantidadPorCombo;
 
-                        productoCombo.CantidadDisponible -= item.Cantidad;
+                        if (productoCombo.CantidadDisponible < cantidadTotal)
+                            throw new Exception(
+                                $"No hay suficiente stock de {productoCombo.Nombre} en el combo {combo.Nombre}");
+
+                        productoCombo.CantidadDisponible -= cantidadTotal;
 
                         _context.MovimientosInventario.Add(new MovimientoInventario
                         {
                             ProductoId = productoCombo.Id,
                             TipoMovimiento = "Salida",
-                            Cantidad = item.Cantidad,
+                            Cantidad = cantidadTotal,
                             Fecha = DateTime.UtcNow,
                             Motivo = $"Venta combo {combo.Nombre}"
                         });
 
                         detalles.Add(new VentaDetalle(
                             productoCombo.Id,
-                            item.Cantidad,
+                            cantidadTotal,
                             productoCombo.PrecioPublico
                         ));
                     }
 
                     continue;
                 }
-
                 throw new Exception($"No se encontró producto ni combo con ID {item.ProductoId}");
             }
 
             var venta = new Venta(command.ClienteId, detalles, command.MetodoPago, command.Notas);
             await _context.Ventas.AddAsync(venta);
-
             await _context.SaveChangesAsync();
 
             return venta;

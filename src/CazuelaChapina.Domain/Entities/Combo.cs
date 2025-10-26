@@ -1,40 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace CazuelaChapina.Domain.Entities;
 
 public class Combo : BaseEntity
 {
-    public string Nombre { get; private set; } = null!;
+    public string Nombre { get; private set; } = string.Empty;
     public string? Descripcion { get; private set; }
     public decimal PrecioTotal { get; private set; }
-    public List<Producto> Productos { get; private set; } = new();
+    public List<ComboDetalle> Detalles { get; private set; } = new();
 
     private Combo() { }
 
-    public Combo(string nombre, decimal precioTotal, string? descripcion = null, List<Producto>? productos = null)
+    public Combo(string nombre, decimal precioTotal, string? descripcion = null)
     {
-        Nombre = nombre;
+        if (string.IsNullOrWhiteSpace(nombre))
+            throw new ArgumentException("El nombre del combo es obligatorio.");
+
+        if (precioTotal < 0)
+            throw new ArgumentException("El precio total no puede ser negativo.");
+
+        Nombre = nombre.Trim();
         PrecioTotal = precioTotal;
-        Descripcion = descripcion;
-        Productos = productos ?? new List<Producto>();
+        Descripcion = descripcion ?? string.Empty;
     }
 
-    public void AgregarProducto(Producto producto)
+    public void AgregarProducto(Guid productoId, int cantidadPorCombo)
     {
-        Productos.Add(producto);
-        RecalcularPrecio();
+        if (productoId == Guid.Empty)
+            throw new ArgumentException("El productoId es obligatorio.");
+
+        if (cantidadPorCombo <= 0)
+            throw new ArgumentException("La cantidad debe ser mayor que cero.");
+
+        var existente = Detalles.FirstOrDefault(d => d.ProductoId == productoId);
+        if (existente != null)
+        {
+            existente.UpdateCantidad(existente.CantidadPorCombo + cantidadPorCombo);
+        }
+        else
+        {
+            var detalle = new ComboDetalle(productoId, cantidadPorCombo);
+            Detalles.Add(detalle);
+        }
     }
 
-    private void RecalcularPrecio()
+    public void QuitarProducto(Guid productoId)
     {
-        PrecioTotal = Productos.Sum(p => p.Precio);
+        var detalle = Detalles.FirstOrDefault(d => d.ProductoId == productoId);
+        if (detalle != null)
+            Detalles.Remove(detalle);
     }
 
-    public void Update(string nombre, decimal precioTotal, string? descripcion, List<Producto> productos)
+    public void Update(string nombre, decimal precioTotal, string? descripcion)
     {
-        Nombre = nombre;
+        if (string.IsNullOrWhiteSpace(nombre))
+            throw new ArgumentException("El nombre es obligatorio.");
+
+        if (precioTotal < 0)
+            throw new ArgumentException("El precio no puede ser negativo.");
+
+        Nombre = nombre.Trim();
         PrecioTotal = precioTotal;
-        Descripcion = descripcion;
-
-        Productos.Clear();
-        Productos.AddRange(productos);
+        Descripcion = descripcion ?? string.Empty;
     }
 }

@@ -15,13 +15,23 @@ public class CreateComboHandler
 
     public async Task<Combo> Handle(CreateComboCommand command)
     {
-        var productos = await _context.Productos
-            .Where(p => command.ProductosIds.Contains(p.Id))
-            .ToListAsync();
+        if (string.IsNullOrWhiteSpace(command.Nombre))
+            throw new ArgumentException("El nombre del combo es obligatorio.");
 
-        var combo = new Combo(command.Nombre, command.PrecioTotal, command.Descripcion, productos);
+        var combo = new Combo(command.Nombre, command.PrecioTotal, command.Descripcion);
 
-        _context.Combos.Add(combo);
+        if (command.Productos != null && command.Productos.Any())
+        {
+            foreach (var item in command.Productos)
+            {
+                var producto = await _context.Productos.FindAsync(item.ProductoId);
+                if (producto == null) continue;
+
+                combo.AgregarProducto(item.ProductoId, item.Cantidad);
+            }
+        }
+
+        await _context.Combos.AddAsync(combo);
         await _context.SaveChangesAsync();
 
         return combo;

@@ -18,12 +18,6 @@
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.pdb
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.genruntimeconfig.cache
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/ref/CazuelaChapina.Infrastructure.dll
-/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.csproj.AssemblyReference.cache
-/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.AssemblyInfoInputs.cache
-/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.AssemblyInfo.cs
-/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.csproj.CoreCompileInputs.cache
-/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.sourcelink.json
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/bin/Debug/net9.0/CazuelaChapina.Infrastructure.deps.json
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/bin/Debug/net9.0/CazuelaChapina.Infrastructure.runtimeconfig.json
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/bin/Debug/net9.0/CazuelaChapina.Infrastructure.dll
@@ -32,6 +26,12 @@
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/bin/Debug/net9.0/CazuelaChapina.Domain.dll
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/bin/Debug/net9.0/CazuelaChapina.Application.pdb
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/bin/Debug/net9.0/CazuelaChapina.Domain.pdb
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.csproj.AssemblyReference.cache
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.AssemblyInfoInputs.cache
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.AssemblyInfo.cs
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.csproj.CoreCompileInputs.cache
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.sourcelink.json
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaC.8BBE5B11.Up2Date
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/CazuelaChapina.Infrastructure.dll
 /home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/Debug/net9.0/refint/CazuelaChapina.Infrastructure.dll
