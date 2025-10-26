@@ -538,24 +538,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/samsepio/.nuget/packages/": {}
+    "/home/0ctopvs/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
+      "projectUniqueName": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
       "projectName": "CazuelaChapina.Domain",
-      "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
-      "packagesPath": "/Users/samsepio/.nuget/packages/",
-      "outputPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/",
+      "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
+      "packagesPath": "/home/0ctopvs/.nuget/packages/",
+      "outputPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/samsepio/.nuget/NuGet/NuGet.Config"
+        "/home/0ctopvs/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -574,7 +575,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -601,7 +602,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

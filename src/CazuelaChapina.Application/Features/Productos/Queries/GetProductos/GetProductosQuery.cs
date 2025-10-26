@@ -17,6 +17,7 @@ public class GetProductosQuery
     {
         var productos = await _context.Productos
             .Include(p => p.Categoria)
+            .Include(p => p.Bodega)
             .Include(p => p.Receta)
                 .ThenInclude(r => r.Detalles)
                     .ThenInclude(d => d.ProductoIngrediente)
@@ -54,9 +55,11 @@ public class GetProductosQuery
                 producto.Id,
                 producto.Nombre,
                 Categoria = producto.Categoria?.Nombre ?? "Sin categoría",
+                Bodega = producto.Bodega?.Nombre ?? "Sin bodega",
                 producto.Descripcion,
                 producto.PrecioPublico,
                 producto.CostoUnitario,
+                producto.BodegaId,
                 producto.UnidadMedida,
                 producto.CantidadDisponible,
                 StockCalculado = stockDisponible,

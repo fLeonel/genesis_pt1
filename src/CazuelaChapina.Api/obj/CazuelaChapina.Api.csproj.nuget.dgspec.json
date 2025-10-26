@@ -1,36 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj": {}
+    "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj": {}
   },
   "projects": {
-    "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj": {
+    "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj",
+        "projectUniqueName": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj",
         "projectName": "CazuelaChapina.Api",
-        "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj",
-        "packagesPath": "/Users/samsepio/.nuget/packages/",
-        "outputPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Api/obj/",
+        "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Api/CazuelaChapina.Api.csproj",
+        "packagesPath": "/home/0ctopvs/.nuget/packages/",
+        "outputPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/samsepio/.nuget/NuGet/NuGet.Config"
+          "/home/0ctopvs/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj": {
-                "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj"
+              "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj": {
+                "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj"
               },
-              "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj": {
-                "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj"
+              "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj": {
+                "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj"
               }
             }
           }
@@ -45,7 +46,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -54,6 +55,10 @@
             "DotNetEnv": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.1.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -89,34 +94,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj": {
+    "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj",
+        "projectUniqueName": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj",
         "projectName": "CazuelaChapina.Application",
-        "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj",
-        "packagesPath": "/Users/samsepio/.nuget/packages/",
-        "outputPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/obj/",
+        "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj",
+        "packagesPath": "/home/0ctopvs/.nuget/packages/",
+        "outputPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/samsepio/.nuget/NuGet/NuGet.Config"
+          "/home/0ctopvs/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj": {
-                "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj"
+              "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj": {
+                "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj"
               }
             }
           }
@@ -131,11 +137,17 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -152,26 +164,27 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj": {
+    "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
+        "projectUniqueName": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
         "projectName": "CazuelaChapina.Domain",
-        "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
-        "packagesPath": "/Users/samsepio/.nuget/packages/",
-        "outputPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/",
+        "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj",
+        "packagesPath": "/home/0ctopvs/.nuget/packages/",
+        "outputPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/samsepio/.nuget/NuGet/NuGet.Config"
+          "/home/0ctopvs/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -190,7 +203,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -217,37 +230,38 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj": {
+    "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj",
+        "projectUniqueName": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj",
         "projectName": "CazuelaChapina.Infrastructure",
-        "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj",
-        "packagesPath": "/Users/samsepio/.nuget/packages/",
-        "outputPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Infrastructure/obj/",
+        "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/CazuelaChapina.Infrastructure.csproj",
+        "packagesPath": "/home/0ctopvs/.nuget/packages/",
+        "outputPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/samsepio/.nuget/NuGet/NuGet.Config"
+          "/home/0ctopvs/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj": {
-                "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj"
+              "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj": {
+                "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Application/CazuelaChapina.Application.csproj"
               },
-              "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj": {
-                "projectPath": "/Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj"
+              "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj": {
+                "projectPath": "/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/CazuelaChapina.Domain.csproj"
               }
             }
           }
@@ -262,7 +276,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -307,7 +321,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/linuxbrew/.linuxbrew/Cellar/dotnet/9.0.8/libexec/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

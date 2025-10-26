@@ -34,6 +34,7 @@ public class CreateProductoHandler
         var producto = new Producto(
             nombre: command.Nombre,
             categoriaId: categoria.Id,
+            bodegaId: command.BodegaId,
             precioPublico: command.PrecioPublico,
             costoUnitario: command.CostoUnitario,
             unidadMedida: command.UnidadMedida,

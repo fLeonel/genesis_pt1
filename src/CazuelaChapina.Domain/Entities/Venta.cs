@@ -76,7 +76,7 @@ public class Venta : BaseEntity
         MetodoPago = nuevoMetodoPago;
     }
 
-    // ✅ Este es el método que faltaba:
+    // Este es el método que faltaba:
     public void UpdateVenta(string metodoPago, string? notas, List<VentaDetalle>? nuevosDetalles)
     {
         if (Estado != "Pendiente")

@@ -13,6 +13,8 @@ public interface IAppDbContext
     DbSet<VentaDetalle> VentaDetalles { get; }
     DbSet<Receta> Recetas { get; }
     DbSet<RecetaDetalle> RecetaDetalles { get; }
+    DbSet<Bodega> Bodegas { get; }
+    DbSet<MovimientoInventario> MovimientosInventario { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

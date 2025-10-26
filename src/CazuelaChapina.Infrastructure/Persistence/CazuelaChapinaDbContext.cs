@@ -13,10 +13,12 @@ public class CazuelaChapinaDbContext : DbContext, IAppDbContext
     public DbSet<Combo> Combos => Set<Combo>();
     public DbSet<Cliente> Clientes => Set<Cliente>();
     public DbSet<Venta> Ventas => Set<Venta>();
-public DbSet<VentaDetalle> VentaDetalles => Set<VentaDetalle>();
+    public DbSet<VentaDetalle> VentaDetalles => Set<VentaDetalle>();
     public DbSet<Receta> Recetas => Set<Receta>();
     public DbSet<RecetaDetalle> RecetaDetalles => Set<RecetaDetalle>();
     public DbSet<Categoria> Categorias => Set<Categoria>();
+    public DbSet<Bodega> Bodegas => Set<Bodega>();
+    public DbSet<MovimientoInventario> MovimientosInventario => Set<MovimientoInventario>();
 
     public CazuelaChapinaDbContext(DbContextOptions<CazuelaChapinaDbContext> options)
         : base(options) { }
@@ -87,6 +89,12 @@ public DbSet<VentaDetalle> VentaDetalles => Set<VentaDetalle>();
             .HasOne(d => d.ProductoIngrediente)
             .WithMany()
             .HasForeignKey(d => d.ProductoIngredienteId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<MovimientoInventario>()
+            .HasOne(m => m.Producto)
+            .WithMany()
+            .HasForeignKey(m => m.ProductoId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 

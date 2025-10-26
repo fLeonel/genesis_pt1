@@ -18,9 +18,17 @@ public class UpdateProductoHandler
         var producto = await _context.Productos.FirstOrDefaultAsync(p => p.Id == command.Id);
         if (producto is null) return false;
 
+        if (command.BodegaId.HasValue)
+        {
+            var bodega = await _context.Bodegas.FirstOrDefaultAsync(b => b.Id == command.BodegaId);
+            if (bodega == null)
+                throw new KeyNotFoundException($"No se encontró la bodega con ID {command.BodegaId}");
+        }
+
         producto.Update(
             command.Nombre,
             command.CategoriaId,
+            command.BodegaId,
             command.PrecioPublico,
             command.CostoUnitario,
             command.UnidadMedida,

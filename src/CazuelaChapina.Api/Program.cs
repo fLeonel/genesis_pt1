@@ -35,7 +35,13 @@ using CazuelaChapina.Application.Features.Recetas.Commands.UpdateReceta;
 using CazuelaChapina.Application.Features.Recetas.Commands.DeleteReceta;
 using CazuelaChapina.Application.Features.Recetas.Queries.GetRecetas;
 using CazuelaChapina.Application.Features.Recetas.Queries.GetRecetaById;
+using CazuelaChapina.Application.Features.Bodegas.Commands.CreateBodega;
+using CazuelaChapina.Application.Features.Bodegas.Commands.UpdateBodega;
+using CazuelaChapina.Application.Features.Bodegas.Commands.DeleteBodega;
+using CazuelaChapina.Application.Features.Bodegas.Queries.GetBodegas;
+using CazuelaChapina.Application.Features.Bodegas.Queries.GetBodegaById;
 using Microsoft.OpenApi.Models;
+using MediatR;
 
 Env.Load();
 
@@ -52,6 +58,9 @@ builder.Services.AddDbContext<CazuelaChapinaDbContext>(options =>
     options.UseSqlite(connectionString));
 
 builder.Services.AddScoped<IAppDbContext, CazuelaChapinaDbContext>();
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssemblyContaining<CreateBodegaCommandHandler>());
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -207,6 +216,42 @@ app.MapDelete("/api/clientes/{id:guid}", async (Guid id, IAppDbContext db) =>
     var success = await handler.Handle(new DeleteClienteCommand { Id = id });
     return success ? Results.NoContent() : Results.NotFound();
 }).WithTags("Clientes");
+
+// Bodegas
+app.MapPost("/api/bodegas", async (CreateBodegaCommand cmd, IMediator mediator) =>
+{
+    var id = await mediator.Send(cmd);
+    return Results.Created($"/api/bodegas/{id}", new { id });
+}).WithTags("Bodegas");
+
+app.MapGet("/api/bodegas", async (IAppDbContext db) =>
+{
+    var handler = new GetBodegasQuery(db);
+    var bodegas = await handler.Handle();
+    return Results.Ok(bodegas);
+}).WithTags("Bodegas");
+
+app.MapGet("/api/bodegas/{id:guid}", async (Guid id, IAppDbContext db) =>
+{
+    var handler = new GetBodegaByIdQuery(db);
+    var bodega = await handler.Handle(id);
+    return bodega is not null ? Results.Ok(bodega) : Results.NotFound();
+}).WithTags("Bodegas");
+
+app.MapPut("/api/bodegas/{id:guid}", async (Guid id, UpdateBodegaCommand cmd, IAppDbContext db) =>
+{
+    cmd = cmd with { Id = id };
+    var handler = new UpdateBodegaCommandHandler(db);
+    await handler.Handle(cmd, default);
+    return Results.NoContent();
+}).WithTags("Bodegas");
+
+app.MapDelete("/api/bodegas/{id:guid}", async (Guid id, IAppDbContext db) =>
+{
+    var handler = new DeleteBodegaCommandHandler(db);
+    await handler.Handle(new DeleteBodegaCommand(id), default);
+    return Results.NoContent();
+}).WithTags("Bodegas");
 
 // Ventas
 app.MapPost("/api/ventas", async (CreateVentaCommand cmd, IAppDbContext db) =>

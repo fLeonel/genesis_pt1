@@ -11,3 +11,16 @@
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/refint/CazuelaChapina.Domain.dll
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.pdb
 /Users/samsepio/Documents/DevRoot/Next/LaCazuelaChapina/src/CazuelaChapina.Domain/obj/Debug/net9.0/ref/CazuelaChapina.Domain.dll
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/bin/Debug/net9.0/CazuelaChapina.Domain.deps.json
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/bin/Debug/net9.0/CazuelaChapina.Domain.dll
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/bin/Debug/net9.0/CazuelaChapina.Domain.pdb
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.csproj.AssemblyReference.cache
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.AssemblyInfoInputs.cache
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.AssemblyInfo.cs
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.csproj.CoreCompileInputs.cache
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.sourcelink.json
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.dll
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/refint/CazuelaChapina.Domain.dll
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/CazuelaChapina.Domain.pdb
+/home/0ctopvs/Documents/DevRoot/fundation_genesis/genesis_pt1/src/CazuelaChapina.Domain/obj/Debug/net9.0/ref/CazuelaChapina.Domain.dll

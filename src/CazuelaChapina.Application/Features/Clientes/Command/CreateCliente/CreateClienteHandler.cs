@@ -16,6 +16,7 @@ public class CreateClienteHandler
     {
         var cliente = new Cliente(
             command.ClienteCodigo,
+            command.Nit,
             command.Nombre,
             command.Telefono,
             command.Correo,

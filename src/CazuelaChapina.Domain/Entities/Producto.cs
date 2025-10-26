@@ -9,6 +9,8 @@ public class Producto : BaseEntity
     public string Nombre { get; private set; } = string.Empty;
     public Guid? CategoriaId { get; private set; }
     public Categoria? Categoria { get; private set; }
+    public Guid? BodegaId { get; private set; }
+    public Bodega? Bodega { get; private set; }
     public string Descripcion { get; private set; } = string.Empty;
     public decimal PrecioPublico { get; private set; }
     public decimal CostoUnitario { get; private set; }
@@ -16,7 +18,7 @@ public class Producto : BaseEntity
     public bool SePuedeVender { get; private set; } = true;
     public bool SePuedeComprar { get; private set; } = true;
     public bool EsFabricado { get; private set; } = false;
-    public decimal CantidadDisponible { get; private set; } = 0m;
+    public decimal CantidadDisponible { get; set; } = 0m;
     public Dictionary<string, string> Atributos { get; private set; } = new();
     public Receta? Receta { get; private set; }
 
@@ -25,6 +27,7 @@ public class Producto : BaseEntity
     public Producto(
         string nombre,
         Guid? categoriaId,
+        Guid? bodegaId,
         decimal precioPublico,
         decimal costoUnitario,
         string unidadMedida,
@@ -40,6 +43,7 @@ public class Producto : BaseEntity
 
         Nombre = nombre.Trim();
         CategoriaId = categoriaId;
+        BodegaId = bodegaId;
         PrecioPublico = precioPublico >= 0 ? precioPublico : throw new ArgumentException("El precio público no puede ser negativo.");
         CostoUnitario = costoUnitario >= 0 ? costoUnitario : throw new ArgumentException("El costo unitario no puede ser negativo.");
         UnidadMedida = unidadMedida;
@@ -69,10 +73,8 @@ public class Producto : BaseEntity
     {
         if (cantidad <= 0)
             throw new ArgumentException("La cantidad a descontar debe ser positiva.");
-
         if (CantidadDisponible < cantidad)
             throw new InvalidOperationException($"Stock insuficiente para el producto: {Nombre}");
-
         CantidadDisponible -= cantidad;
     }
 
@@ -100,6 +102,7 @@ public class Producto : BaseEntity
     public void Update(
         string nombre,
         Guid? categoriaId,
+        Guid? bodegaId,
         decimal precioPublico,
         decimal costoUnitario,
         string unidadMedida,
@@ -112,6 +115,7 @@ public class Producto : BaseEntity
     {
         Nombre = nombre;
         CategoriaId = categoriaId;
+        BodegaId = bodegaId;
         PrecioPublico = precioPublico;
         CostoUnitario = costoUnitario;
         UnidadMedida = unidadMedida;

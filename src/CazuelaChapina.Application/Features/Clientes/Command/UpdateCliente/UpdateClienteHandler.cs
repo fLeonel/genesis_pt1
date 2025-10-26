@@ -23,7 +23,8 @@ public class UpdateClienteHandler
             command.Nombre,
             command.Telefono,
             command.Correo,
-            command.Direccion
+            command.Direccion,
+            command.Nit
         );
 
         await _context.SaveChangesAsync();

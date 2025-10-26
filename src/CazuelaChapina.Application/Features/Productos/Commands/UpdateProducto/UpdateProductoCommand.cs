@@ -5,6 +5,7 @@ public class UpdateProductoCommand
     public Guid Id { get; set; }
     public string Nombre { get; set; } = string.Empty;
     public Guid? CategoriaId { get; set; }
+    public Guid? BodegaId { get; set; }
     public decimal PrecioPublico { get; set; }
     public decimal CostoUnitario { get; set; }
     public string UnidadMedida { get; set; } = "unidad";

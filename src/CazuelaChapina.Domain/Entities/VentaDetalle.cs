@@ -1,8 +1,12 @@
 namespace CazuelaChapina.Domain.Entities;
 
+using System.Text.Json.Serialization;
+
 public class VentaDetalle : BaseEntity
 {
     public Guid VentaId { get; private set; }
+
+    [JsonIgnore]
     public Venta Venta { get; private set; } = null!;
     public Guid ProductoId { get; private set; }
     public Producto Producto { get; private set; } = null!;

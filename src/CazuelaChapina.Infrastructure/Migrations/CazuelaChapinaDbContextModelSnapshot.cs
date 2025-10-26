@@ -17,6 +17,35 @@ namespace CazuelaChapina.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
 
+            modelBuilder.Entity("CazuelaChapina.Domain.Entities.Bodega", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("BodegaPadreId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BodegaPadreId");
+
+                    b.ToTable("Bodegas");
+                });
+
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Categoria", b =>
                 {
                     b.Property<Guid>("Id")
@@ -57,6 +86,10 @@ namespace CazuelaChapina.Infrastructure.Migrations
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Nit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -93,6 +126,36 @@ namespace CazuelaChapina.Infrastructure.Migrations
                     b.ToTable("Combos");
                 });
 
+            modelBuilder.Entity("CazuelaChapina.Domain.Entities.MovimientoInventario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Cantidad")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ProductoId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TipoMovimiento")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("MovimientosInventario");
+                });
+
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Producto", b =>
                 {
                     b.Property<Guid>("Id")
@@ -101,6 +164,9 @@ namespace CazuelaChapina.Infrastructure.Migrations
 
                     b.Property<string>("Atributos")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("BodegaId")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("CantidadDisponible")
@@ -143,6 +209,8 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BodegaId");
 
                     b.HasIndex("CategoriaId");
 
@@ -291,12 +359,38 @@ namespace CazuelaChapina.Infrastructure.Migrations
                     b.ToTable("ComboProducto");
                 });
 
+            modelBuilder.Entity("CazuelaChapina.Domain.Entities.Bodega", b =>
+                {
+                    b.HasOne("CazuelaChapina.Domain.Entities.Bodega", "BodegaPadre")
+                        .WithMany("SubBodegas")
+                        .HasForeignKey("BodegaPadreId");
+
+                    b.Navigation("BodegaPadre");
+                });
+
+            modelBuilder.Entity("CazuelaChapina.Domain.Entities.MovimientoInventario", b =>
+                {
+                    b.HasOne("CazuelaChapina.Domain.Entities.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Producto", b =>
                 {
+                    b.HasOne("CazuelaChapina.Domain.Entities.Bodega", "Bodega")
+                        .WithMany("Productos")
+                        .HasForeignKey("BodegaId");
+
                     b.HasOne("CazuelaChapina.Domain.Entities.Categoria", "Categoria")
                         .WithMany("Productos")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Bodega");
 
                     b.Navigation("Categoria");
                 });
@@ -374,6 +468,13 @@ namespace CazuelaChapina.Infrastructure.Migrations
                         .HasForeignKey("ProductosId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CazuelaChapina.Domain.Entities.Bodega", b =>
+                {
+                    b.Navigation("Productos");
+
+                    b.Navigation("SubBodegas");
                 });
 
             modelBuilder.Entity("CazuelaChapina.Domain.Entities.Categoria", b =>
