@@ -20,6 +20,7 @@ namespace CazuelaChapina.Infrastructure.Persistence
         public DbSet<Bodega> Bodegas => Set<Bodega>();
         public DbSet<MovimientoInventario> MovimientosInventario => Set<MovimientoInventario>();
         public DbSet<ComboDetalle> ComboDetalles => Set<ComboDetalle>();
+        public DbSet<DashboardSnapshot> DashboardSnapshots => Set<DashboardSnapshot>();
 
         public CazuelaChapinaDbContext(DbContextOptions<CazuelaChapinaDbContext> options)
             : base(options) { }

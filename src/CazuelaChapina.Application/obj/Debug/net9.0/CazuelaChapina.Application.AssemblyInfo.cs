@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CazuelaChapina.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc7f7f2655c1e446dbbb1adaa3585ff5b694b8e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2549a357c6fbeb2c0754e6f554d72febe35e8179")]
 [assembly: System.Reflection.AssemblyProductAttribute("CazuelaChapina.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CazuelaChapina.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

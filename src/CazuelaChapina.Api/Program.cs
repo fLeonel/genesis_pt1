@@ -40,7 +40,9 @@ using CazuelaChapina.Application.Features.Bodegas.Commands.UpdateBodega;
 using CazuelaChapina.Application.Features.Bodegas.Commands.DeleteBodega;
 using CazuelaChapina.Application.Features.Bodegas.Queries.GetBodegas;
 using CazuelaChapina.Application.Features.Bodegas.Queries.GetBodegaById;
+using CazuelaChapina.Application.Features.Dashboard.Queries.GetDashboard;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Mvc;
 using MediatR;
 
 Env.Load();
@@ -76,6 +78,8 @@ builder.Services.AddSwaggerGen(c =>
         if (path.StartsWith("api/categorias")) return new[] { "Categorias" };
         if (path.StartsWith("api/recetas")) return new[] { "Recetas" };
         if (path.StartsWith("api/ai/insights")) return new[] { " GENESIS IA "};
+        if (path.StartsWith("api/bodegas")) return new[] { "Bodegas" };
+        if (path.StartsWith("api/dashboard")) return new[] { "Dashboard" };
         return new[] { "Otros" };
     });
     c.DocInclusionPredicate((name, api) => true);
@@ -83,6 +87,8 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddHttpClient<LlmService>();
 builder.Services.AddScoped<SalesInsightsService>();
+
+builder.Services.AddScoped<GetDashboardHandler>();
 
 builder.Services.AddCors(options =>
 {
@@ -105,6 +111,13 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
+
+// Dashboards
+app.MapGet("/api/dashboard", async ([FromServices] GetDashboardHandler handler) =>
+{
+    var result = await handler.Handle();
+    return Results.Ok(result);
+}).WithTags("Dashboard");
 
 // Productos
 app.MapPost("/api/productos", async (CreateProductoCommand cmd, CazuelaChapinaDbContext db) =>

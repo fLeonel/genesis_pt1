@@ -16,6 +16,7 @@ public interface IAppDbContext
     DbSet<RecetaDetalle> RecetaDetalles { get; }
     DbSet<Bodega> Bodegas { get; }
     DbSet<MovimientoInventario> MovimientosInventario { get; }
+    DbSet<DashboardSnapshot> DashboardSnapshots { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
